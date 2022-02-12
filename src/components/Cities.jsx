@@ -4,11 +4,11 @@ import City from './City';
 
 const Cities = ({ weatherDataList }) => {
   return (
-    <div>
-      {weatherDataList.map((weatherData, i) => (
-          <City key={'city-' + i} weatherData={weatherData} />
+    <ul id='cities-container'>
+      {weatherDataList.map((weatherData) => (
+          <City key={weatherData.current.id} weatherData={weatherData} />
         ))}
-    </div>
+    </ul>
   );
 }
 

@@ -5,13 +5,17 @@ import SecondaryWeather from './SecondaryWeather';
 
 const City = ({ weatherData }) => {
   return (
-    <div>
-      <PrimaryWeather />
+    <li id={'city-' + weatherData.current.id}>
+
+      <PrimaryWeather weatherData={weatherData} />
+
       <div>
-        {/** TODO: map SecondaryWeather forecasts */}
-        <SecondaryWeather />
+        {weatherData.forecast.list.slice(1).map((interval) => (
+          <SecondaryWeather key={interval.dt} forecastData={interval} />
+        ))}
       </div>
-    </div>
+
+    </li>
   );
 }
  
