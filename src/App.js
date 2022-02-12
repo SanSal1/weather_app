@@ -2,44 +2,60 @@ import './App.css';
 import React, { useState, useEffect, useRef } from 'react';
 import SelectView from './components/SelectView';
 import Cities from './components/Cities';
+import weatherService from './services/weatherService'
+
+import cities from './data/cities';
 
 
 function App() {
 
+  const [selectedCity, setSelectedCity] = useState('0');
   const [weatherDataList, setWeatherDataList] = useState([]);
 
   let isMounted = useRef(true);
 
   useEffect(() => {
-    fetchWeather();
+    fetchWeather(selectedCity);
     return () => { isMounted = false };
   }, [])
 
-  const fetchWeather = async () => {
+  const fetchWeather = async (cityId) => {
     try {
-      // TODO: fetch data from API
-    }
-    catch (err) {
+      if (cityId === '0') {
+        // TODO: all cities at once
+        return;
+      }
+
+      const dataCurrent = await weatherService.getCurrent(cityId);
+      const dataForecast = await weatherService.getForecast(cityId);
+
+      if (isMounted) setWeatherDataList([
+        {
+          current: dataCurrent.data,
+          forecast: dataForecast.data
+        }
+      ]);
+
+    } catch (err) {
       console.log(err);
     }
   }
 
   const handleSelectChange = (cityId) => {
-    // TODO: setWeatherDataList("data according to cityId")
+    setSelectedCity(cityId);
+    fetchWeather(cityId);
   }
 
   return (
-    <div className='App'>
+    <div>
       <header id='header'>
-        <div>
-          <h1>
-            Säätutka
-          </h1>
-        </div>
+        <h1>
+          Säätutka
+        </h1>
       </header>
 
       <main id='content'>
-        <SelectView onChange={handleSelectChange} />
+        <SelectView selectId={'city-select'} options={cities} onChange={handleSelectChange} />
         <Cities weatherDataList={weatherDataList} />
       </main>
     </div>
