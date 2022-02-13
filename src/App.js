@@ -53,9 +53,10 @@ function App() {
   }
 
   return (
-    <div>
+    <div id='app-root'>
+
       <header id='header'>
-        <h1>
+        <h1 className='heading'>
           {strings.headerText}
         </h1>
       </header>
@@ -65,6 +66,7 @@ function App() {
         {!errorStatus && <Cities visibleCities={visibleCities} handleError={handleError} />}
         {errorStatus && <Status message={errorStatus} />}
       </main>
+
     </div>
   );
 }

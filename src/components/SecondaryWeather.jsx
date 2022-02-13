@@ -12,18 +12,18 @@ import strings from '../data/strings';
  */
 const SecondaryWeather = ({ forecastData }) => {
   return (
-    <div>
+    <div className='container secondary-weather-root'>
 
-      <div>
-        <p>{forecastData.dt_txt.slice(-8, -3)}</p>
-        <img src={`http://openweathermap.org/img/wn/${forecastData.weather[0].icon}@2x.png`} alt='' />
-        <p>{Math.round(forecastData.main.temp)  + strings.temperatureUnit}</p>
+      <div className='secondary-weather-toprow'>
+        <p className='subtitle1'>{forecastData.dt_txt.slice(-8, -3)}</p>
+        <img className='secondary-icon' src={`http://openweathermap.org/img/wn/${forecastData.weather[0].icon}@2x.png`} alt='' />
+        <p className='body3'>{Math.round(forecastData.main.temp)  + strings.temperatureUnit}</p>
       </div>
       
-      <div>
-        <p>{forecastData.wind.speed + strings.windspeedUnit}</p>
-        <p>{forecastData.main.humidity + strings.humidityUnit}</p>
-        <p>{getPrecipitation(forecastData)}</p>
+      <div className='secondary-weather-bottomrow'>
+        <p className='subtitle2'>{forecastData.wind.speed + strings.windspeedUnit}</p>
+        <p className='subtitle2'>{forecastData.main.humidity + strings.humidityUnit}</p>
+        <p className='subtitle2'>{getPrecipitation(forecastData)}</p>
       </div>
 
     </div>

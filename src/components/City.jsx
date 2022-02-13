@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { ClipLoader } from 'react-spinners';
 import PrimaryWeather from './PrimaryWeather';
 import SecondaryWeather from './SecondaryWeather';
-import Status from './Status';
 import weatherService from '../services/weatherService'
-
-import strings from '../data/strings';
 
 
 /**
@@ -45,17 +43,17 @@ const City = ({ city, handleError }) => {
   }
 
   return (
-    <li id={'city-' + city.id}>
+    <li id={'city-' + city.id} className='city-container'>
       {weatherData && <div>
-        <PrimaryWeather weatherData={weatherData} />
+        <PrimaryWeather weatherData={weatherData} name={city.name} />
 
-        <div>
+        <div className='secondary-weather-container'>
           {weatherData.forecast.list.slice(1).map((interval) => (
             <SecondaryWeather key={interval.dt} forecastData={interval} />
           ))}
         </div>
       </div>}
-      {!weatherData && <Status message={strings.loadingMessage} />}
+      {!weatherData && <ClipLoader color={'#00A5E5'} loading={true} size={100} css={{margin: '32px'}} />}
     </li>
   );
 }

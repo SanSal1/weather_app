@@ -11,36 +11,37 @@ import strings from '../data/strings';
  * 5 day / 3 hour forecast data is used to display 3h precipitation.
  * 
  * @param {object} weatherData includes attributes "current" and "forecast" based on which endpoint was used
+ * @param {string} name city's name
  */
-const PrimaryWeather = ({ weatherData }) => {
+const PrimaryWeather = ({ weatherData, name }) => {
   return (
-    <div>
+    <div className='container primary-weather-root'>
 
-      <div>
+      <div className='primary-weather-row'>
 
-        <div>
-          <p>{weatherData.current.name}</p>
-          <p>{weatherData.current.weather[0].main}</p>
+        <div className='primary-weather-row-topleft'>
+          <p className='body2'>{name}</p>
+          <p className='subtitle1'>{weatherData.current.weather[0].main}</p>
         </div>
 
-        <div>
-          <img src={`http://openweathermap.org/img/wn/${weatherData.current.weather[0].icon}@2x.png`} alt='' />
-          <p>{Math.round(weatherData.current.main.temp) + strings.temperatureUnit}</p>
+        <div className='primary-weather-row-topright'>
+          <img className='primary-icon' src={`http://openweathermap.org/img/wn/${weatherData.current.weather[0].icon}@2x.png`} alt='' />
+          <p className='body1 no-wrap'>{Math.round(weatherData.current.main.temp) + strings.temperatureUnit}</p>
         </div>
 
       </div>
 
-      <div>
+      <div className='primary-weather-row'>
 
         <div>
-          <p>{getordinalDate(weatherData.current.dt)}</p>
-          <p>{getTime(weatherData.current.dt)}</p>
+          <p className='body3'>{getordinalDate(weatherData.current.dt)}</p>
+          <p className='subtitle1'>{getTime(weatherData.current.dt)}</p>
         </div>
 
-        <div>
-          <p>{strings.windLabel + weatherData.current.wind.speed + strings.windspeedUnit}</p>
-          <p>{strings.humidityLabel + weatherData.current.main.humidity + strings.humidityUnit}</p>
-          <p>{strings.precipitationLabel + getPrecipitation(weatherData.forecast.list[0])}</p>
+        <div className='primary-weather-row-bottomright'>
+          <p className='subtitle1'>{strings.windLabel + weatherData.current.wind.speed + strings.windspeedUnit}</p>
+          <p className='subtitle1'>{strings.humidityLabel + weatherData.current.main.humidity + strings.humidityUnit}</p>
+          <p className='subtitle1'>{strings.precipitationLabel + getPrecipitation(weatherData.forecast.list[0])}</p>
         </div>
 
       </div>

@@ -1,38 +1,241 @@
-.App {
+/* Colors and spacing */
+:root {
+  --app-background: #F8F9FA;
+  --container-background: #FFFFFF;
+  --border: #E6E6E6;
+  --highlighted-background: #E5F6FD;
+  --font-primary: #262626;
+  --font-secondary: #70757A;
+  --spacing-1: 8px;
+  --spacing-2: 16px;
+  --spacing-3: 24px;
+  --spacing-4: 32px;
+  --app-max-width: 1224px;
+}
+
+
+/* Fonts */
+
+.heading {
+  color: var(--font-primary);
+  font-size: 23pt;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.subtitle1 {
+  color: var(--font-secondary);
+  font-size: 13pt;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.subtitle2 {
+  color: var(--font-secondary);
+  font-size: 10pt;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.body1 {
+  color: var(--font-primary);
+  font-size: 26pt;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.body2 {
+  color: var(--font-primary);
+  font-size: 19pt;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.body3 {
+  color: var(--font-primary);
+  font-size: 15pt;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.no-wrap {
+  white-space: nowrap;
+}
+
+
+/* App & general css */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+#app-root {
+  background-color: var(--app-background);
+  height: 100vh;
+  width: 100%;
+  min-width: 320px;
+}
+
+#header {
+  background-color: var(--container-background);
+  border: 1px solid var(--border);
   text-align: center;
+  padding-top: var(--spacing-2);
+  padding-bottom: var(--spacing-2);
+  width: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#content {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: var(--app-background);
+  padding: var(--spacing-2) var(--spacing-3);
+  width: 100%;
+}
+
+.container {
+  background-color: var(--container-background);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+
+/* SelectView */
+
+select {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+  margin: 0;      
+}
+
+.select {
+  width: 100%;
+  max-width: var(--app-max-width);
+  font-size: 13pt;
+  color: var(--font-primary);
+  padding: 1em;
+}
+
+.select-box {
+  width: 100%;
+  max-width: calc(var(--app-max-width) - var(--spacing-3));
+}
+
+
+/* Status */
+
+#status-container {
+  margin: var(--spacing-4) var(--spacing-3);
+  width: 100%;
+  text-align: center;
+}
+
+
+/* PrimaryWeather */
+
+.primary-weather-root {
+  display: flex;
+  flex-direction: column;
+}
+
+.primary-weather-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-3);
+}
+
+.primary-weather-row-topleft {
+  display: grid;
+  flex-direction: column;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.primary-weather-row-topright {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.primary-weather-row-bottomright {
+  text-align: right;
+}
+
+.primary-icon {
+  max-width: 100px;
+  min-width: 24px;
+}
+
+
+/* SecondaryWeather */
+
+.secondary-weather-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: var(--spacing-2);
+  width: 100%;
+}
+
+.secondary-weather-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 260px;
+  width: calc(20% - 8px);
+  text-align: center;
+}
+
+.secondary-weather-toprow {
+  padding: var(--spacing-2) var(--spacing-1);
+}
+
+.secondary-weather-bottomrow {
+  background-color: var(--highlighted-background);
+  border-top: 1px solid var(--border);
+  box-sizing: border-box;
+  height: 100%;
+  padding: var(--spacing-1);
+}
+
+.secondary-icon {
+  max-width: 100px;
+  width: 100%;
+}
+
+
+/* Cities & City */
+
+#cities-container {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media only screen and (min-width : 768px) {
+  #cities-container {
+    column-gap: var(--spacing-3);
+    display: grid;
+    grid-template-columns: auto auto;
+    max-width: calc(var(--app-max-width) - var(--spacing-3));
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+
+.city-container {
+  padding: var(--spacing-2) 0;
 }

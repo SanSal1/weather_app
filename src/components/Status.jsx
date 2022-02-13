@@ -8,7 +8,7 @@ import React from "react";
 const Status = ({ message }) => {
   return (
     <div id='status-container'>
-      <p>
+      <p className='body3'>
         {message}
       </p>
     </div>
