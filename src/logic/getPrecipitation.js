@@ -1,4 +1,4 @@
-import units from "../data/units";
+import strings from "../data/strings";
 
 
 /**
@@ -9,13 +9,13 @@ import units from "../data/units";
  */
 const getPrecipitation = (data) => {
   if (data.rain && data.rain['3h']) {
-    return data.rain['3h'] + units.precipitation;
+    return data.rain['3h'] + strings.precipitationUnit;
   }
   else if (data.snow && data.snow['3h']) {
-    return data.snow['3h'] + units.precipitation;
+    return data.snow['3h'] + strings.precipitationUnit;
   }
   else {
-    return '0' + units.precipitation;
+    return '0' + strings.precipitationUnit;
   }
 }
  

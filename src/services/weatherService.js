@@ -11,13 +11,7 @@ const weatherService = {
 
     const url = '';
 
-    return await axios.get(url, config)
-      .then(response => {
-        return response
-      })
-      .catch(error => {
-        return error.response.status
-      })
+    return await axios.get(url, config);
   },
   getForecast: async (location) => {
 
@@ -27,13 +21,7 @@ const weatherService = {
 
     const url = '';
 
-    return await axios.get(url, config)
-      .then(response => {
-        return response
-      })
-      .catch(error => {
-        return error.response.status
-      })
+    return await axios.get(url, config);
   },
 }
 
