@@ -53,7 +53,7 @@ const City = ({ city, handleError }) => {
           ))}
         </div>
       </div>}
-      {!weatherData && <ClipLoader color={'#00A5E5'} loading={true} size={100} css={{margin: '32px'}} />}
+      {!weatherData && <ClipLoader color={'#00A5E5'} loading={true} size={100} css={{margin: '48px'}} />}
     </li>
   );
 }
