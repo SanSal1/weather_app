@@ -10,7 +10,7 @@ const weatherService = {
   getCurrent: async (cityId) => {
 
     const config = {
-      headers: { ContentType: 'application/json', mode: 'cors' },
+      headers: { ContentType: 'application/json' },
     }
 
     const url = getUrl(cityId, 'weather');
@@ -20,7 +20,7 @@ const weatherService = {
   getForecast: async (cityId) => {
 
     const config = {
-      headers: { ContentType: 'application/json', mode: 'cors' },
+      headers: { ContentType: 'application/json' },
     }
 
     const url = getUrl(cityId, 'forecast')  + '&cnt=6';

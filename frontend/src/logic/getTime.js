@@ -8,7 +8,7 @@ const getTime = (unixTime) => {
 
   const dateObj = new Date(unixTime * 1000);
 
-  const minutes = dateObj.getMinutes().toString().length === 1 ? dateObj.getMinutes() + '0' : dateObj.getMinutes();
+  const minutes = dateObj.getMinutes().toString().length === 1 ? '0' + dateObj.getMinutes() : dateObj.getMinutes();
 
   const time = dateObj.getHours() + ':' + minutes;
 
