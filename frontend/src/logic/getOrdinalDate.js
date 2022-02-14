@@ -1,12 +1,11 @@
 /**
- * Convert unix timestamp into an ordinal date, e.g. formatted as "Feb 12th".
+ * Get an ordinal date, e.g. formatted as "Feb 12th".
  * 
- * @param {number} unixTime unix timestamp
  * @returns {string} ordinal date
  */
-const getOrdinalDate = (unixTime) => {
+const getOrdinalDate = () => {
   
-  const dateObj = new Date(unixTime * 1000);
+  const dateObj = new Date();
 
   const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
