@@ -97,7 +97,7 @@
   flex-direction: column;
   align-items: center;
   background-color: var(--app-background);
-  padding: var(--spacing-2) var(--spacing-3);
+  padding: var(--spacing-3) var(--spacing-4);
   width: 100%;
 }
 
@@ -199,6 +199,7 @@ select {
   min-height: 260px;
   width: calc(20% - 8px);
   text-align: center;
+  align-items: center;
 }
 
 .secondary-weather-toprow {
@@ -210,6 +211,7 @@ select {
   border-top: 1px solid var(--border);
   box-sizing: border-box;
   height: 100%;
+  width: 100%;
   padding: var(--spacing-1);
 }
 
@@ -227,7 +229,21 @@ select {
   padding: 0;
 }
 
-@media only screen and (min-width : 768px) {
+@media only screen and (max-width : 768px) {
+  #cities-container {
+    min-width: 100%;
+  }
+
+  .loading-wrapper {
+    min-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+
+@media only screen and (min-width : 769px) {
   #cities-container {
     column-gap: var(--spacing-3);
     display: grid;
