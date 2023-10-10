@@ -1,6 +1,6 @@
 # Säätutka
 
-Ohjelma on toteutettu NodeJs:llä ja Reactilla. Se käynnistetään seuraavasti:
+Ohjelma on toteutettu NodeJs:llä ja Reactilla (Helmikuu 2022). Se käynnistetään seuraavasti:
 
 ## server
 
@@ -13,7 +13,7 @@ Ohjelma on toteutettu NodeJs:llä ja Reactilla. Se käynnistetään seuraavasti:
 
 ## frontend
 
-2. Avaa frontend kansio ja luo siihen .env tiedosto. Kirjoita tiedostoon:
+2. Tarvitset OpenWeatherMap API avaimen. Avaa frontend kansio ja luo siihen .env tiedosto. Kirjoita tiedostoon:
 
 ### REACT_APP_API_KEY=<sinun API-avaimesi tähän>
 

@@ -20,7 +20,7 @@ const City = ({ city, handleError }) => {
 
   useEffect(() => {
     fetchWeather();
-    return () => { isMounted = false };
+    return () => { isMounted.current = false };
   }, [])
 
   const fetchWeather = async () => {
@@ -28,7 +28,7 @@ const City = ({ city, handleError }) => {
       const dataCurrent = await weatherService.getCurrent(city.id);
       const dataForecast = await weatherService.getForecast(city.id);
 
-      if (dataCurrent.data && dataForecast.data && isMounted) {
+      if (dataCurrent.data && dataForecast.data && isMounted.current) {
         setWeatherData(
           {
             current: dataCurrent.data,
